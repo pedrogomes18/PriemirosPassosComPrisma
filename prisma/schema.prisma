@@ -9,3 +9,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Courses {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  duratio     Int
+  creates_at  DateTime @default(now())
+
+  @@map("courses")
+}
+
+model Modules {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  creates_at  DateTime @default(now())
+
+  @@map("modules")
+}
